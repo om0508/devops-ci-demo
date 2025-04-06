@@ -10,4 +10,9 @@ jobs:
     needs: build
     steps:
       - run: echo "Running tests"
+jobs:
+   secret-demo:
+      runs-on: ubuntu-latest
+      steps:
+        -run: echo "Hello ${{ secrets.MY_NAME }}"
 
