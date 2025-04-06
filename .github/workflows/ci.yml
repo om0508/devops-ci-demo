@@ -1,17 +1,13 @@
-name: Basic CI
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - run: echo "Build started"
 
-      - name: Say Hello
-        run: echo "Hello from CI"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: echo "Running tests"
+
